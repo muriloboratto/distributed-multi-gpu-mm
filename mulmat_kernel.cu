@@ -66,7 +66,7 @@ void ABMultiply (double *a, double *b, double *c, int m, int n, int k,int lda, i
        dim3 grid(n/w, m/w);
        dim3 block(w, w);
 
-       sharedABMultiply <<< grid, block,2 * w * w * sizeof(double) >>> (a, b, c, m, n, k, lda, ldb, ldc, w);
+       sharedABMultiply <<< grid, block, 2 * w * w * sizeof(double) >>> (a, b, c, m, n, k, lda, ldb, ldc, w);
 
        cudaDeviceSynchronize();
 
